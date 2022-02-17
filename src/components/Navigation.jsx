@@ -1,100 +1,71 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logoImage from "../assets/logoimage.svg";
+import logo from "../assets/logo.svg";
 
 const Nav = styled.nav`
-  color: white;
-
-  height: 5rem;
-  background-color: #f47500;
-  align-items: center;
+  height: 70px;
   display: flex;
-
-  padding: 0 2rem;
-
-  > .logo {
-    display: flex;
-    max-width: 20%;
-    .logo-image {
-      width: 40px;
-    }
-    > .logo-text {
-      margin-left: 0.9rem;
-      font-size: 1rem;
+  align-items: center;
+  background: rgba(244, 117, 0, 1);
+  justify-content: center;
+  color: rgba(255, 255, 255, 1);
+  > .navbar-toggler {
+    margin-right: auto;
+    display: none;
+    @media (max-width: 1150px) {
+      display: block;
+      float: right;
     }
   }
-  & .nav {
-    flex: 1;
+  padding: 5px 0px;
+  .logo-image {
+    object-fit: contain;
+    width: 300px;
+  }
+  .nav {
     display: flex;
+    justify-self: flex-end;
     align-items: center;
-    margin-left: auto;
-    justify-content: flex-end;
-
-    > .nav-list {
-      display: flex;
-      font-weight: bold;
-      justify-content: flex-end;
-      align-items: center;
-      flex: 1;
-      @media (max-width: 900px) {
-        background: #f4760089;
-        box-sizing: contain;
-        flex-direction: column;
-        justify-content: flex-start;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        height: ${(props) => (props.showMenu ? "100vh" : "0")};
-        transition: 0.6s;
-      }
-      > a {
-        display: block;
-        margin-left: 15px;
-        > button {
-          background: linear-gradient(90deg, #268082 0%, #005051 100%);
-          border-radius: 6px;
-          height: 30px;
-          color: white;
-        }
-      }
+    margin-left: 120px;
+    @media (max-width: 1150px) {
+      flex-direction: column;
+      position: relative;
+      top: 115px;
+      right: 410px;
+      height: fit-content;
+      width: 100%;
+      background: red;
     }
-  }
-  & .toggle-icon {
-    @media (min-width: 900px) {
-      display: none;
+    > * {
+      display: block;
+      margin-left: 40px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 1);
     }
-
-    margin-left: auto;
+    > button {
+      border-radius: 6px;
+      height: 40px;
+      width: 150px;
+      background: linear-gradient(90deg, #268082 0%, #005051 100%);
+    }
   }
 `;
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const menuToggler = () => {
-    setShowMenu((prevState) => !prevState);
-  };
+  const [openNav, setOpenNav] = useState(false);
   return (
-    <Nav showMenu={showMenu}>
+    <Nav openNav={openNav}>
       <div className="logo">
-        <img className="logo-image" src={logoImage} alt="" />
-        <p className="logo-text">HomeSolutions.ng</p>
+        <img src={logo} alt="Logo" className="logo-image" />
       </div>
+      <div className="navbar-toggler">Open</div>
       <div className="nav">
-        <div className="toggle-icon">
-          <p onClick={menuToggler}>{showMenu ? "Close" : "Open"}</p>
-        </div>
-        <div className="nav-list">
-          <a>For Sale</a>
-          <a>For Rent</a>
-          <a>Short Let</a>
-          <a>Blog</a>
-          <a>Agents</a>
-          <a>
-            <button>Post For FREE</button>
-          </a>
-        </div>
+        <a href="#">For Sale</a>
+        <a href="#">For Rent</a>
+        <a href="#">Short Let</a>
+        <a href="#">Blog</a>
+        <a href="#">Agent</a>
+        <button>Post For FREE</button>
       </div>
     </Nav>
   );
