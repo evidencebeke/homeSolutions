@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Nav } from "../assets/styles.jsx";
 import logo from "../assets/logo.svg";
+import { HiMenu } from "react-icons/hi";
 
 const Navigation = () => {
   const [openNav, setOpenNav] = useState(false);
 
   const navToggle = () => {
     setOpenNav((prevState) => !prevState);
-    console.log(openNav)
+    console.log(openNav);
   };
   return (
     <Nav openNav={openNav}>
@@ -15,7 +16,9 @@ const Navigation = () => {
         <img src={logo} alt="Logo" className="logo-image" />
       </div>
       <div className="navbar-toggler">
-        <span onClick={navToggle}>Open</span>
+        <span onClick={navToggle}>
+          <HiMenu />
+        </span>
       </div>
       <div className="nav">
         <a href="#">For Sale</a>

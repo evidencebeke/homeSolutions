@@ -14,6 +14,10 @@ export const Nav = styled.nav`
   z-index: 99;
   > .navbar-toggler {
     margin: 0 20px 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     /* margin-left: auto; */
     @media (min-width: 1150px) {
       display: none;
@@ -42,22 +46,27 @@ export const Nav = styled.nav`
       flex-direction: column;
       position: absolute;
       top: 80px;
-      background: red;
+      background: grey;
       left: 0;
-      justify-content: center;
+      justify-content: space-around;
       width: 100vw;
       margin: 0;
       overflow: hidden;
       z-index: 3;
 
       height: ${(props) => (props.openNav ? "50vh" : "0%")};
-      transition-duration: 0.1s;
+      transition-duration: 0.05s;
+      transition-timing-function: ;
     }
     > * {
       display: block;
       margin-left: 40px;
       text-decoration: none;
       color: rgba(255, 255, 255, 1);
+      @media (max-width: 1150px) {
+        border-bottom: 1px solid white;
+        width: 100%;
+      }
     }
     > button {
       border-radius: 6px;
@@ -73,10 +82,11 @@ export const Head = styled.header`
   background-image: url(${lagosCity});
 
   position: relative;
+  display: flex;
   top: 80px;
   color: white;
+  height: fit-content;
 
-  height: 80vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -84,6 +94,7 @@ export const Head = styled.header`
   justify-content: center;
   box-sizing: border-box;
   > .header-content-container {
+    padding: 100px 0;
     height: 100%;
     width: 100%;
     background: rgba(0, 80, 81, 0.6);
@@ -94,14 +105,43 @@ export const Head = styled.header`
     text-align: center;
     > form {
       /* width: 85%; */
-      background: red;
+      padding: 15px 0;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      width: 65vw;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 15px;
+      padding: 20px;
+      > button {
+        background: rgba(244, 117, 0, 1);
+        color: white;
+        width: 150px;
+        height: 30px;
+        border-radius: 14px;
+      }
+      > div {
+        width: 90%;
+
+        display: flex;
+        flex-wrap: wrap;
+        > select {
+          min-width: 100px;
+          margin: 20px 4px;
+          height: 40px;
+          border-radius: 15px;
+          color: grey;
+          display: block;
+          flex: 1;
+        }
+      }
       > input {
         display: block;
-        width: 60vw;
+        width: 90%;
+        height: 6vh;
+        border-radius: 15px;
       }
     }
     > .property-type {
@@ -120,23 +160,25 @@ export const Head = styled.header`
           display: flex;
           background: rgba(244, 117, 0, 1);
 
-          width: 20vw;
+          width: 15vw;
           margin-left: 3px;
           height: 60px;
           align-items: center;
           text-align: center;
           justify-content: center;
-          border-radius: 15px;
+          border-top-left-radius: 13px;
+          border-top-right-radius: 13px;
           @media (max-width: 900px) {
-            font-size: 12px;
+            font-size: 0.6em;
 
-            border-radius: 0;
+            height: 40px;
           }
         }
       }
     }
     > .header-text {
       font-weight: 800;
+      margin-bottom: 20px;
       @media (max-width: 700px) {
         display: none;
       }
@@ -146,4 +188,15 @@ export const Head = styled.header`
       }
     }
   }
+`;
+
+export const MainContainer = styled.main`
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  text-align: left;
+  margin-left: 12px;
 `;

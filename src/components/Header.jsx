@@ -61,32 +61,37 @@ const Header = () => {
         </div>
         <form action="">
           <input type="text" placeholder="Enter a state, locality or area" />
-          <div className="property-deta">
+          <div className="property-data">
             <select name="" id="">
+              <option value="">Type</option>
               <option value="">4</option>
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
             </select>
             <select name="" id="">
+              <option value="">Beds</option>
               <option value="">4</option>
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
             </select>
             <select name="" id="">
+              <option value="">Min Price</option>
               <option value="">4</option>
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
             </select>
             <select name="" id="">
+              <option value="">Max Price</option>
               <option value="">4</option>
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
             </select>
           </div>
+          <button type="submit">Search</button>
         </form>
       </div>
     </Head>
