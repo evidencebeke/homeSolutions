@@ -54,9 +54,8 @@ export const Nav = styled.nav`
       overflow: hidden;
       z-index: 3;
 
-      height: ${(props) => (props.openNav ? "50vh" : "0%")};
+      height: ${(props) => (props.openNav ? "80vh" : "0%")};
       transition-duration: 0.05s;
-      transition-timing-function: ;
     }
     > * {
       display: block;
